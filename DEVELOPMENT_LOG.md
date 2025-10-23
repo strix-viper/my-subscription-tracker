@@ -51,3 +51,11 @@
     - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. 폼 내부의 입력 필드들을 감싸는 'div' 태그가 'flex'나 'grid'로 되어 있다면...`
   - `src/components/SubscriptionList.tsx`: 리스트 아이템 내부 반응형 레이아웃 적용
     - Gemini CLI 사용 프롬프트: `src/components/SubscriptionList.tsx 파일을 수정해 줘. 1. 리스트 아이템 내부(bg-gray-800)의 'name', 'cost', 'date'와 '버튼 그룹'을 감싸는 'div' 태그에 'flex flex-col sm:flex-row sm:justify-between sm:items-center' 클래스를 적용해 줘...`
+- 프로젝트 루트에 `README.md` 파일 생성 및 프로젝트 정보, 기능, 기술 스택, 설치/실행 방법, AI 활용 방법 등 작성 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `프로젝트 루트에 README.md 파일을 생성해 줘...`
+- `src/components/Button.tsx` 컴포넌트 생성 및 `variant` prop에 따른 동적 스타일링 구현 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components 폴더 안에 'Button.tsx' 파일을 새로 생성해 줘...`
+- `src/components/Button.tsx`에 `success` variant 추가 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components/Button.tsx 파일을 수정해 줘. 1. 'variant' prop의 타입을 'primary', 'secondary', 'danger', 'warning'에 'success'를 추가해 줘...`
+- `src/components/SubscriptionForm.tsx`의 버튼들을 `Button` 컴포넌트로 교체 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. './Button'에서 'Button' 컴포넌트를 임포트해 줘...`

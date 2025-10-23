@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# 월간 구독 서비스 트래커 (My Subscription Tracker)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 설명
+바이브 코딩 기말시험 프로젝트로, 개인의 월간 구독 서비스를 관리하고 총 지출을 추적하는 웹 애플리케이션.
 
-Currently, two official plugins are available:
+## 주요 기능
+- 구독 항목 CRUD (추가, 조회, 수정, 삭제)
+- 월간 총 지출액 실시간 계산
+- 목록 정렬 (최신순, 비용순)
+- 반응형 웹 디자인
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술 스택
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- LocalStorage
 
-## React Compiler
+## 설치 및 실행 방법
+1. 프로젝트 저장소를 클론합니다.
+2. 프로젝트 루트 디렉토리에서 다음 명령어를 실행하여 의존성을 설치합니다.
+   ```bash
+   npm install
+   ```
+3. 다음 명령어를 실행하여 개발 서버를 시작합니다.
+   ```bash
+   npm run dev
+   ```
+4. 브라우저에서 `http://localhost:5173` (또는 터미널에 표시된 주소)로 접속합니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## AI 활용 방법 (Gemini CLI)
+이 프로젝트는 Gemini CLI를 적극적으로 활용하여 개발되었습니다. 주요 활용 분야는 다음과 같습니다.
+- **프로젝트 초기 설정**: Vite + React + TypeScript 프로젝트의 초기 환경을 설정하는 데 도움을 받았습니다.
+- **컴포넌트 생성**: `SubscriptionForm.tsx`, `SubscriptionList.tsx` 등 주요 React 컴포넌트의 초기 구조를 생성했습니다.
+- **로직 구현**: 구독 추가, 조회, 수정, 삭제 로직 및 LocalStorage 연동, 월간 총 지출액 계산, 목록 정렬 기능 등을 구현하는 데 활용했습니다.
+- **버그 수정**: 개발 과정에서 발생한 문제점(예: Vite/WSL 캐시 문제)을 진단하고 해결 방안을 모색하는 데 도움을 받았습니다.
+- **문서 작성**: `DEVELOPMENT_LOG.md` 및 `README.md`와 같은 프로젝트 문서를 작성하고 업데이트하는 데 사용되었습니다.

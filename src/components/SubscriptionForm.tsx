@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from './Button'; // Import Button component
 
 export interface Subscription {
   id: string;
@@ -92,22 +93,22 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         </div>
       </div>
       <div className="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
-        <button
+        <Button
           type="submit"
-          className={`w-full px-4 py-2 font-bold text-white rounded-md ${
-            editingSubscriptionId ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'
-          }`}
+          variant={editingSubscriptionId ? 'success' : 'primary'}
+          className="w-full"
         >
           {editingSubscriptionId ? '수정하기' : '추가하기'}
-        </button>
+        </Button>
         {editingSubscriptionId && (
-          <button
+          <Button
             type="button"
+            variant="secondary"
             onClick={onCancelEdit}
-            className="w-full px-4 py-2 font-bold text-white bg-gray-500 rounded-md hover:bg-gray-600"
+            className="w-full"
           >
             취소
-          </button>
+          </Button>
         )}
       </div>
     </form>

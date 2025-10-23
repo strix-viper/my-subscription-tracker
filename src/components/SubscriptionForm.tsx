@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Subscription } from '../types';
+
+export interface Subscription {
+  id: string;
+  name: string;
+  monthlyCost: number;
+  paymentDate: string;
+}
 
 interface SubscriptionFormProps {
   onAddSubscription: (subscription: Omit<Subscription, 'id'>) => void;

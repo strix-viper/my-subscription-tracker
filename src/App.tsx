@@ -69,7 +69,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-3xl mx-auto p-4">
-        <h1 className="text-4xl font-bold flex justify-between items-center mb-8">
+        <h1 className="text-4xl font-bold flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8">
           월간 구독 서비스 트래커
           <div className="text-xl text-cyan-400">월 총 지출액: {totalMonthlyCost}원</div>
         </h1>

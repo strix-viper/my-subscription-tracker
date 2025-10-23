@@ -44,3 +44,10 @@
   - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. React에서 'useMemo'를 임포트해 줘...`
 - `App.tsx`에 정렬 기준 선택 (`select` 태그) UI 추가 및 `sortOrder` state와 연동 (AI-assisted) (2025-10-24 00:00:00 KST)
   - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'SubscriptionForm'과 'SubscriptionList' 컴포넌트 렌더링 **사이**에 'div' 태그를 추가해 줘...`
+- 반응형 인터페이스 개선 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - `App.tsx`: `h1` 태그 반응형 레이아웃 적용 (모바일 세로, sm 이상 가로)
+    - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'h1' 태그의 'flex justify-between items-center' 클래스를 'flex flex-col sm:flex-row sm:justify-between sm:items-center'로 변경해 줘...`
+  - `src/components/SubscriptionForm.tsx`: 입력 필드 및 버튼 그룹 반응형 레이아웃 적용
+    - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. 폼 내부의 입력 필드들을 감싸는 'div' 태그가 'flex'나 'grid'로 되어 있다면...`
+  - `src/components/SubscriptionList.tsx`: 리스트 아이템 내부 반응형 레이아웃 적용
+    - Gemini CLI 사용 프롬프트: `src/components/SubscriptionList.tsx 파일을 수정해 줘. 1. 리스트 아이템 내부(bg-gray-800)의 'name', 'cost', 'date'와 '버튼 그룹'을 감싸는 'div' 태그에 'flex flex-col sm:flex-row sm:justify-between sm:items-center' 클래스를 적용해 줘...`

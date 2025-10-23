@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import SubscriptionForm from './components/SubscriptionForm';
 import SubscriptionList from './components/SubscriptionList';
 
@@ -12,6 +12,7 @@ export interface Subscription {
 function App() {
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [editingSubscriptionId, setEditingSubscriptionId] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<string>('recent'); // New state for sorting
 
   // Load subscriptions from LocalStorage on initial render
   useEffect(() => {
@@ -25,6 +26,22 @@ function App() {
   useEffect(() => {
     localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
   }, [subscriptions]);
+
+  const totalMonthlyCost = useMemo(() => {
+    return subscriptions.reduce((sum, sub) => sum + sub.monthlyCost, 0);
+  }, [subscriptions]);
+
+  const sortedSubscriptions = useMemo(() => {
+    let sortableSubscriptions = [...subscriptions]; // Create a copy to avoid mutating original state
+
+    if (sortOrder === 'highCost') {
+      sortableSubscriptions.sort((a, b) => b.monthlyCost - a.monthlyCost);
+    } else if (sortOrder === 'lowCost') {
+      sortableSubscriptions.sort((a, b) => a.monthlyCost - b.monthlyCost);
+    }
+    // 'recent' or any other value will return the default order (which is already handled by how new subscriptions are added)
+    return sortableSubscriptions;
+  }, [subscriptions, sortOrder]);
 
   const handleSaveSubscription = (subscription: Omit<Subscription, 'id'>) => {
     if (editingSubscriptionId) {
@@ -52,16 +69,32 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="max-w-3xl mx-auto p-4">
-        <h1 className="text-4xl font-bold text-center mb-8">월간 구독 서비스 트래cker</h1>
+        <h1 className="text-4xl font-bold flex justify-between items-center mb-8">
+          월간 구독 서비스 트래커
+          <div className="text-xl text-cyan-400">월 총 지출액: {totalMonthlyCost}원</div>
+        </h1>
         <SubscriptionForm
           onSaveSubscription={handleSaveSubscription}
           editingSubscriptionId={editingSubscriptionId}
           subscriptions={subscriptions}
           onCancelEdit={() => setEditingSubscriptionId(null)}
         />
+        <div className="flex justify-end items-center mb-4 mt-4">
+          <label htmlFor="sortOrder" className="text-gray-300 mr-2">정렬 기준:</label>
+          <select
+            id="sortOrder"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="bg-gray-700 text-white p-2 rounded"
+          >
+            <option value="recent">최신순</option>
+            <option value="highCost">비용 높은 순</option>
+            <option value="lowCost">비용 낮은 순</option>
+          </select>
+        </div>
         <div className="mt-8">
           <SubscriptionList
-            subscriptions={subscriptions}
+            subscriptions={sortedSubscriptions} // Pass sorted subscriptions
             onDeleteSubscription={handleDeleteSubscription}
             onEditClick={setEditingSubscriptionId}
           />

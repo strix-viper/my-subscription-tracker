@@ -38,3 +38,9 @@
   - Gemini CLI 사용 프롬프트: `src/components/SubscriptionList.tsx 파일을 수정해 줘. 1. props 인터페이스에 'onEditClick' 함수를 추가해 줘...`
 - `App.tsx`의 `onAddSubscription` 함수를 `handleSaveSubscription`으로 리팩토링하여 추가/수정 로직 통합 및 `SubscriptionForm` props 업데이트 (AI-assisted) (2025-10-24 00:00:00 KST)
   - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'onAddSubscription' 함수의 이름을 'handleSaveSubscription'으로 변경해 줘...`
+- `src/components/SubscriptionForm.tsx` 수정: `useEffect`를 이용한 폼 초기화/데이터 로드, `onSaveSubscription` 및 `onCancelEdit` prop 추가, 조건부 버튼 렌더링 및 스타일링 구현 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. React의 'useEffect'를 임포트해 줘...`
+- `App.tsx`에 `sortOrder` state 및 `sortedSubscriptions` `useMemo` 훅 추가, `SubscriptionList`에 정렬된 구독 목록 전달 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. React에서 'useMemo'를 임포트해 줘...`
+- `App.tsx`에 정렬 기준 선택 (`select` 태그) UI 추가 및 `sortOrder` state와 연동 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'SubscriptionForm'과 'SubscriptionList' 컴포넌트 렌더링 **사이**에 'div' 태그를 추가해 줘...`

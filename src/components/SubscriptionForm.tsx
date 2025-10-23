@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export interface Subscription {
   id: string;
@@ -8,13 +8,38 @@ export interface Subscription {
 }
 
 interface SubscriptionFormProps {
-  onAddSubscription: (subscription: Omit<Subscription, 'id'>) => void;
+  subscriptions: Subscription[];
+  editingSubscriptionId: string | null;
+  onSaveSubscription: (subscription: Omit<Subscription, 'id'>) => void;
+  onCancelEdit: () => void;
 }
 
-const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onAddSubscription }) => {
+const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
+  subscriptions,
+  editingSubscriptionId,
+  onSaveSubscription,
+  onCancelEdit,
+}) => {
   const [name, setName] = useState('');
   const [monthlyCost, setMonthlyCost] = useState('');
   const [paymentDate, setPaymentDate] = useState('');
+
+  useEffect(() => {
+    if (editingSubscriptionId) {
+      const subscriptionToEdit = subscriptions.find(
+        (sub) => sub.id === editingSubscriptionId
+      );
+      if (subscriptionToEdit) {
+        setName(subscriptionToEdit.name);
+        setMonthlyCost(subscriptionToEdit.monthlyCost.toString());
+        setPaymentDate(subscriptionToEdit.paymentDate);
+      }
+    } else {
+      setName('');
+      setMonthlyCost('');
+      setPaymentDate('');
+    }
+  }, [editingSubscriptionId, subscriptions]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,14 +47,11 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onAddSubscription }
       alert('모든 필드를 입력해주세요.');
       return;
     }
-    onAddSubscription({
+    onSaveSubscription({
       name,
       monthlyCost: parseFloat(monthlyCost),
       paymentDate,
     });
-    setName('');
-    setMonthlyCost('');
-    setPaymentDate('');
   };
 
   return (
@@ -67,9 +89,25 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({ onAddSubscription }
           placeholder="예: 매월 5일"
         />
       </div>
-      <button type="submit" className="w-full px-4 py-2 font-bold text-white bg-blue-600 rounded-md hover:bg-blue-700">
-        추가하기
-      </button>
+      <div className="flex space-x-2">
+        <button
+          type="submit"
+          className={`w-full px-4 py-2 font-bold text-white rounded-md ${
+            editingSubscriptionId ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'
+          }`}
+        >
+          {editingSubscriptionId ? '수정하기' : '추가하기'}
+        </button>
+        {editingSubscriptionId && (
+          <button
+            type="button"
+            onClick={onCancelEdit}
+            className="w-full px-4 py-2 font-bold text-white bg-gray-500 rounded-md hover:bg-gray-600"
+          >
+            취소
+          </button>
+        )}
+      </div>
     </form>
   );
 };

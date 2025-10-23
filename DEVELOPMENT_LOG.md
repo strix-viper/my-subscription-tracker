@@ -30,3 +30,11 @@
   - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'handleDeleteSubscription'이라는 새 함수를 만들어 줘...`
 - 개발 일지 업데이트 및 시간 기준 KST로 변경 (AI-assisted) (2025-10-24 00:00:00 KST)
   - Gemini CLI 사용 프롬프트: `자료 변경로그를 업데이트 해줘` 및 `그리고 모든 로그의 시간기준을 kst로 바꾸어`
+- `src/components/SubscriptionList.tsx`에 `onDeleteSubscription` prop 추가 및 삭제 버튼 기능 구현 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components/SubscriptionList.tsx 파일을 수정해 줘. 1. props 인터페이스에 'onDeleteSubscription' 함수를 추가해 줘...`
+- `App.tsx`에 `editingSubscriptionId` state 추가 및 `SubscriptionList`에 `onEditClick` prop으로 전달 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'editingSubscriptionId'라는 새 React state를 추가해 줘...`
+- `src/components/SubscriptionList.tsx`에 `onEditClick` prop 추가 및 수정 버튼 기능 구현 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/components/SubscriptionList.tsx 파일을 수정해 줘. 1. props 인터페이스에 'onEditClick' 함수를 추가해 줘...`
+- `App.tsx`의 `onAddSubscription` 함수를 `handleSaveSubscription`으로 리팩토링하여 추가/수정 로직 통합 및 `SubscriptionForm` props 업데이트 (AI-assisted) (2025-10-24 00:00:00 KST)
+  - Gemini CLI 사용 프롬프트: `src/App.tsx 파일을 수정해 줘. 1. 'onAddSubscription' 함수의 이름을 'handleSaveSubscription'으로 변경해 줘...`

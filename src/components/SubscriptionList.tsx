@@ -7,9 +7,11 @@ export interface Subscription {
 
 interface SubscriptionListProps {
   subscriptions: Subscription[];
+  onDeleteSubscription: (id: string) => void;
+  onEditClick: (id: string) => void;
 }
 
-const SubscriptionList = ({ subscriptions }: SubscriptionListProps) => {
+const SubscriptionList = ({ subscriptions, onDeleteSubscription, onEditClick }: SubscriptionListProps) => {
   return (
     <div className="space-y-4">
       {subscriptions.map((subscription) => (
@@ -20,10 +22,16 @@ const SubscriptionList = ({ subscriptions }: SubscriptionListProps) => {
             <p>Payment Date: {subscription.paymentDate}</p>
           </div>
           <div className="flex space-x-2">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+            <button
+              className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
+              onClick={() => onEditClick(subscription.id)}
+            >
               수정
             </button>
-            <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+              onClick={() => onDeleteSubscription(subscription.id)}
+            >
               삭제
             </button>
           </div>

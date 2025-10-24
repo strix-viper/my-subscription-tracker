@@ -56,7 +56,8 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 bg-gray-800 rounded-lg">
+    <form onSubmit={handleSubmit} className="p-6 mb-6 bg-gray-800 rounded-xl shadow-2xl">
+      <h2 class="text-2xl font-bold text-white mb-4">새 구독 추가</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300">구독 이름</label>

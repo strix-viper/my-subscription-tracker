@@ -59,3 +59,4 @@
   - Gemini CLI 사용 프롬프트: `src/components/Button.tsx 파일을 수정해 줘. 1. 'variant' prop의 타입을 'primary', 'secondary', 'danger', 'warning'에 'success'를 추가해 줘...`
 - `src/components/SubscriptionForm.tsx`의 버튼들을 `Button` 컴포넌트로 교체 (AI-assisted) (2025-10-24 00:00:00 KST)
   - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. './Button'에서 'Button' 컴포넌트를 임포트해 줘...`
+- 재사용 가능한 Button 컴포넌트 생성 및 적용, 깔끔한 카드(Card) 디자인 적용으로 사용자 경험 개선 (AI-assisted) (2025-10-24 14:34:57 KST)

@@ -67,11 +67,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="max-w-3xl mx-auto p-4">
+    <div className="min-h-screen bg-gray-100 text-gray-800">
+      <div className="max-w-lg mx-auto p-6">
         <h1 className="text-4xl font-bold flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8">
           월간 구독 서비스 트래커
-          <div className="text-xl text-cyan-400">월 총 지출액: {totalMonthlyCost}원</div>
+          <div className="text-xl text-cyan-600">월 총 지출액: {totalMonthlyCost}원</div>
         </h1>
         <SubscriptionForm
           onSaveSubscription={handleSaveSubscription}
@@ -80,12 +80,12 @@ function App() {
           onCancelEdit={() => setEditingSubscriptionId(null)}
         />
         <div className="flex justify-end items-center mb-4 mt-4">
-          <label htmlFor="sortOrder" className="text-gray-300 mr-2">정렬 기준:</label>
+          <label htmlFor="sortOrder" className="text-gray-600 mr-2">정렬 기준:</label>
           <select
             id="sortOrder"
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="bg-gray-700 text-white p-2 rounded"
+            className="bg-white text-gray-800 p-2 rounded border border-gray-300"
           >
             <option value="recent">최신순</option>
             <option value="highCost">비용 높은 순</option>

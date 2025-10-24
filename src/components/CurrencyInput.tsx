@@ -32,7 +32,6 @@ const CurrencyInput: React.FC<CurrencyInputProps> = ({ value, onChange, ...props
       type="text"
       value={displayValue}
       onChange={handleChange}
-      className="w-full p-3 text-white bg-gray-700 border border-gray-600 rounded-md"
     />
   );
 };

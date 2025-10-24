@@ -57,37 +57,38 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-6 mb-6 bg-gray-800 rounded-xl shadow-2xl">
-      <h2 className="text-2xl font-bold text-white mb-4">새 구독 추가</h2>
+    <form onSubmit={handleSubmit} className="p-6 mb-6 bg-white rounded-lg shadow-lg border border-gray-200">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4">새 구독 추가</h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-300">구독 이름</label>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-600">구독 이름</label>
           <input
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-2 mt-1 text-white bg-gray-700 border border-gray-600 rounded-md"
+            className="w-full p-2 mt-1 text-gray-800 bg-gray-50 border border-gray-200 rounded-md"
             placeholder="예: Netflix"
           />
         </div>
         <div>
-          <label htmlFor="monthlyCost" className="block text-sm font-medium text-gray-300">월별 비용</label>
+          <label htmlFor="monthlyCost" className="block text-sm font-medium text-gray-600">월별 비용</label>
           <CurrencyInput
             id="monthlyCost"
             value={monthlyCost}
             onChange={setMonthlyCost}
             placeholder="예: 17000"
+            className="w-full p-2 mt-1 text-gray-800 bg-gray-50 border border-gray-200 rounded-md"
           />
         </div>
         <div>
-          <label htmlFor="paymentDate" className="block text-sm font-medium text-gray-300">결제일</label>
+          <label htmlFor="paymentDate" className="block text-sm font-medium text-gray-600">결제일</label>
           <input
             type="text"
             id="paymentDate"
             value={paymentDate}
             onChange={(e) => setPaymentDate(e.target.value)}
-            className="w-full p-2 mt-1 text-white bg-gray-700 border border-gray-600 rounded-md"
+            className="w-full p-2 mt-1 text-gray-800 bg-gray-50 border border-gray-200 rounded-md"
             placeholder="예: 매월 5일"
           />
         </div>

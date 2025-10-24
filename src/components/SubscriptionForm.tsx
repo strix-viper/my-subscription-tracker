@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button'; // Import Button component
+import CurrencyInput from './CurrencyInput';
 
 export interface Subscription {
   id: string;
@@ -22,7 +23,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   onCancelEdit,
 }) => {
   const [name, setName] = useState('');
-  const [monthlyCost, setMonthlyCost] = useState('');
+  const [monthlyCost, setMonthlyCost] = useState(0);
   const [paymentDate, setPaymentDate] = useState('');
 
   useEffect(() => {
@@ -32,12 +33,12 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
       );
       if (subscriptionToEdit) {
         setName(subscriptionToEdit.name);
-        setMonthlyCost(subscriptionToEdit.monthlyCost.toString());
+        setMonthlyCost(subscriptionToEdit.monthlyCost);
         setPaymentDate(subscriptionToEdit.paymentDate);
       }
     } else {
       setName('');
-      setMonthlyCost('');
+      setMonthlyCost(0);
       setPaymentDate('');
     }
   }, [editingSubscriptionId, subscriptions]);
@@ -50,7 +51,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
     }
     onSaveSubscription({
       name,
-      monthlyCost: parseFloat(monthlyCost),
+      monthlyCost,
       paymentDate,
     });
   };
@@ -72,12 +73,10 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         </div>
         <div>
           <label htmlFor="monthlyCost" className="block text-sm font-medium text-gray-300">월별 비용</label>
-          <input
-            type="number"
+          <CurrencyInput
             id="monthlyCost"
             value={monthlyCost}
-            onChange={(e) => setMonthlyCost(e.target.value)}
-            className="w-full p-2 mt-1 text-white bg-gray-700 border border-gray-600 rounded-md"
+            onChange={setMonthlyCost}
             placeholder="예: 17000"
           />
         </div>

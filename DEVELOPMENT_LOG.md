@@ -60,3 +60,5 @@
 - `src/components/SubscriptionForm.tsx`의 버튼들을 `Button` 컴포넌트로 교체 (AI-assisted) (2025-10-24 00:00:00 KST)
   - Gemini CLI 사용 프롬프트: `src/components/SubscriptionForm.tsx 파일을 수정해 줘. 1. './Button'에서 'Button' 컴포넌트를 임포트해 줘...`
 - 재사용 가능한 Button 컴포넌트 생성 및 적용, 깔끔한 카드(Card) 디자인 적용으로 사용자 경험 개선 (AI-assisted) (2025-10-24 14:34:57 KST)
+- UX 개선: 금액 입력 필드 컴포넌트 분리 및 적용 완료. (AI-assisted) (2025-10-24 14:37:52 KST)
+  - 결과 및 수정사항: CurrencyInput 컴포넌트를 생성하여 월간 비용 입력 시 쉼표 포맷팅 및 숫자 관리를 개선함 (AI-assisted).

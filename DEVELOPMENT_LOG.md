@@ -62,3 +62,5 @@
 - 재사용 가능한 Button 컴포넌트 생성 및 적용, 깔끔한 카드(Card) 디자인 적용으로 사용자 경험 개선 (AI-assisted) (2025-10-24 14:34:57 KST)
 - UX 개선: 금액 입력 필드 컴포넌트 분리 및 적용 완료. (AI-assisted) (2025-10-24 14:37:52 KST)
   - 결과 및 수정사항: CurrencyInput 컴포넌트를 생성하여 월간 비용 입력 시 쉼표 포맷팅 및 숫자 관리를 개선함 (AI-assisted).
+- 코드 품질 개선: React DOM 경고 수정 완료. (AI-assisted) (2025-10-24 14:42:53 KST)
+  - 결과 및 수정사항: JSX에서 잘못 사용된 'class' 속성을 'className'으로 일괄 변경하여 콘솔 경고를 제거함 (AI-assisted).

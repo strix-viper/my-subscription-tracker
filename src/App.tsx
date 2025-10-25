@@ -13,6 +13,7 @@ function App() {
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [editingSubscriptionId, setEditingSubscriptionId] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<string>('recent'); // New state for sorting
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   // Load subscriptions from LocalStorage on initial render
   useEffect(() => {
@@ -60,6 +61,7 @@ function App() {
       setSubscriptions([newSubscription, ...subscriptions]);
     }
     setEditingSubscriptionId(null); // Exit edit mode
+    setShowForm(false);
   };
 
   const handleDeleteSubscription = (id: string) => {
@@ -73,12 +75,27 @@ function App() {
           월간 구독 서비스 트래커
           <div className="text-xl text-cyan-600">월 총 지출액: {totalMonthlyCost}원</div>
         </h1>
-        <SubscriptionForm
-          onSaveSubscription={handleSaveSubscription}
-          editingSubscriptionId={editingSubscriptionId}
-          subscriptions={subscriptions}
-          onCancelEdit={() => setEditingSubscriptionId(null)}
-        />
+        <div>
+          {!showForm && (
+            <button
+              onClick={() => setShowForm(true)}
+              className="bg-green-600 text-white p-3 rounded-lg font-semibold mb-6"
+            >
+              새 구독 추가
+            </button>
+          )}
+          {showForm && (
+            <SubscriptionForm
+              onSaveSubscription={handleSaveSubscription}
+              editingSubscriptionId={editingSubscriptionId}
+              subscriptions={subscriptions}
+              onCancelEdit={() => {
+                setEditingSubscriptionId(null);
+                setShowForm(false);
+              }}
+            />
+          )}
+        </div>
         <div className="flex justify-end items-center mb-4 mt-4">
           <label htmlFor="sortOrder" className="text-gray-600 mr-2">정렬 기준:</label>
           <select

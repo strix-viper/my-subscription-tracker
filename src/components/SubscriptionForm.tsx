@@ -54,6 +54,18 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
       monthlyCost,
       paymentDate,
     });
+    // Reset form after saving
+    setName('');
+    setMonthlyCost(0);
+    setPaymentDate('');
+  };
+
+  const handleCancel = () => {
+    onCancelEdit();
+    // Reset form state
+    setName('');
+    setMonthlyCost(0);
+    setPaymentDate('');
   };
 
   return (
@@ -105,7 +117,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
           <Button
             type="button"
             variant="secondary"
-            onClick={onCancelEdit}
+            onClick={handleCancel}
             className="w-full"
           >
             취소
